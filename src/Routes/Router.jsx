@@ -1,17 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
-import Main from "../Outlates/Main";
 import Home from "../Component/Home/Home";
+import Main from "../Outlates/Main";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
-      children:[
+      children: [
         {
-            path:"/",
-            element:<Home></Home>
-        }
-      ]
+          path: "/",
+          element: <Home></Home>,
+        },
+      ],
     },
   ]);
 

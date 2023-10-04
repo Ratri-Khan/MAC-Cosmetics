@@ -4,10 +4,10 @@ import banner3 from "../../assets/banner/Banner3.jpg";
 
 const Banner = () => {
   return (
-    <div className="flex  mt-8  flex-col sm:flex-row">
+    <div className="flex bg-black flex-col sm:flex-row">
       <div className="w-2/5  rounded-l-md h-[450px] bg-fuchsia-200 pl-8 flex justify-center items-center">
         <div className="">
-          <p className="text-4xl text-center  font-semibold font-medium leading-none italic">
+          <p className="text-4xl text-center  font-semibold leading-none italic">
             {" "}
             Original and authentic  makeup product purchase
             from our shop
@@ -45,3 +45,4 @@ const Banner = () => {
 }
 
 export default Banner;
+
