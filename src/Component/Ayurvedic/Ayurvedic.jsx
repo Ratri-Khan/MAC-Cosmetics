@@ -1,6 +1,6 @@
 import featured1 from '../../assets/banner/product.png';
 
-const Features = () => {
+const Ayurvedic = () => {
   return (
     <section className=" dark:text-gray-100">
       <div className="container max-w-xl p-6 py-12 mx-auto space-y-24 lg:px-8 lg:max-w-7xl">
@@ -123,4 +123,4 @@ const Features = () => {
   );
 }
 
-export default Features;
+export default Ayurvedic;

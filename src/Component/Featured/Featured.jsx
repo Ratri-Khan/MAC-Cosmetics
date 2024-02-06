@@ -1,23 +1,67 @@
 import React from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-// import required modules
 import { Pagination } from "swiper/modules";
 
-import img1 from "../../assets/featured/img1.jpg";
-import img2 from "../../assets/featured/img2.jpg";
-import img3 from "../../assets/featured/img3.jpg";
-import img4 from "../../assets/featured/img4.jpg";
-import img5 from "../../assets/featured/img5.jpg";
-import img6 from "../../assets/featured/img6.jpg";
+import Marquee from "react-fast-marquee";
 
 const Featured = () => {
+  const discounts = [
+    {
+      id: 1,
+      name: "Foundation",
+      discount: "30% discount",
+      Details: "If you buy Foundation within the next 15 days",
+      Details2: "you will get 30% discount.",
+      image: "https://i.ibb.co/qdPt9cS/img1.jpg",
+    },
+    {
+      id: 2,
+      name: "Blusher",
+      discount: "40% discount",
+      Details: "If you buy Blusher within the next 15 days",
+      Details2: "you will get 40% discount.",
+      image: "https://i.ibb.co/QDWm48z/img6.jpg",
+    },
+    {
+      id: 3,
+      name: "Eye Shadow",
+      discount: "35% discount",
+      Details: "If you buy Eye Shadow within the next 15 days",
+      Details2: "you will get 35% discount.",
+      image: "https://i.ibb.co/VD6rbHJ/img3.jpg",
+    },
+    {
+      id: 4,
+      name: "Lipstick",
+      discount: "25% discount",
+      Details: "If you buy Lipstick within the next 15 days",
+      Details2: "you will get 25% discount.",
+      image: "https://i.ibb.co/XYxf6zg/img4.jpg",
+    },
+    {
+      id: 5,
+      name: "High Lighter",
+      discount: "25% discount",
+      Details: "If you buy High Lighter within the next 15 days",
+      Details2: "you will get 25% discount.",
+      image: "https://i.ibb.co/Bz5zVw7/img5.jpg",
+    },
+    {
+      id: 6,
+      name: "Blow Pomade",
+      discount: "30% discount",
+      Details: "If you buy Blow Pomade within the next 15 days",
+      Details2: "you will get 30% discount.",
+      image: "https://i.ibb.co/vhjJkrk/img2.jpg",
+    },
+  ];
   return (
-    <div>
+    <div className="w-full  mx-auto">
+      <div>
+        <h3 className="text-2xl text-center my-16 font-bold">Discount Price</h3>
+      </div>
       <Swiper
         slidesPerView={4}
         spaceBetween={30}
@@ -28,126 +72,32 @@ const Featured = () => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <div
-            className="hero h-96"
-            style={{
-              backgroundImage: `url("${img1}")`,
-            }}
-          >
-            <div className="hero-overlay bg-opacity-60"></div>
-            <div className="hero-content text-center text-neutral-content">
-              <div className="max-w-md">
-                <h1 className="mb-5 text-3xl font-bold">Foundation</h1>
-                <p className="mb-5">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
-                </p>
-              </div>
-            </div>
+        {discounts.map((discount) => (
+          <div key={discount.id}>
+            <SwiperSlide>
+              <Marquee>
+                <div
+                  className="hero h-96"
+                  style={{
+                    backgroundImage: `url("${discount.image}")`,
+                  }}
+                >
+                  <div className="hero-overlay bg-opacity-60"></div>
+                  <div className="hero-content text-center text-neutral-content">
+                    <div className="max-w-md">
+                      <h1 className="text-3xl font-bold">{discount.name}</h1>
+                      <p className="text-xl font-bold">{discount.discount}</p>
+                      <p className="text-lg">
+                        {discount.Details} <br />
+                        {discount.Details2}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Marquee>
+            </SwiperSlide>
           </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            className="hero h-96"
-            style={{
-              backgroundImage: `url("${img2}")`,
-            }}
-          >
-            <div className="hero-overlay bg-opacity-60"></div>
-            <div className="hero-content text-center text-neutral-content">
-              <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                <p className="mb-5">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
-                </p>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            className="hero h-96"
-            style={{
-              backgroundImage: `url("${img3}")`,
-            }}
-          >
-            <div className="hero-overlay bg-opacity-60"></div>
-            <div className="hero-content text-center text-neutral-content">
-              <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                <p className="mb-5">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
-                </p>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            className="hero h-96"
-            style={{
-              backgroundImage: `url("${img4}")`,
-            }}
-          >
-            <div className="hero-overlay bg-opacity-60"></div>
-            <div className="hero-content text-center text-neutral-content">
-              <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                <p className="mb-5">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
-                </p>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            className="hero h-96"
-            style={{
-              backgroundImage: `url("${img5}")`,
-            }}
-          >
-            <div className="hero-overlay bg-opacity-60"></div>
-            <div className="hero-content text-center text-neutral-content">
-              <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                <p className="mb-5">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
-                </p>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            className="hero h-96"
-            style={{
-              backgroundImage: `url("${img6}")`,
-            }}
-          >
-            <div className="hero-overlay bg-opacity-60"></div>
-            <div className="hero-content text-center text-neutral-content">
-              <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                <p className="mb-5">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
-                </p>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
