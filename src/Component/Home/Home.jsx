@@ -3,7 +3,7 @@ import Banner from '../Banner/Banner';
 import MakeupGallary from '../MakeupGallary/MakeupGallary';
 import Review from '../Review/Review';
 import Featured from '../Featured/Featured';
-import Ayurvedic from '../ayurvedic/ayurvedic';
+import AboutProduct from '../AboutProduct/AboutProduct';
 
 
 const Home = () => {
@@ -12,7 +12,7 @@ const Home = () => {
             <Banner></Banner>
             <MakeupGallary></MakeupGallary>
             <Featured></Featured>
-            <Ayurvedic></Ayurvedic>
+            <AboutProduct></AboutProduct>
             <Review></Review>
         </div>
     );

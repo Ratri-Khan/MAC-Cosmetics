@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="footer p-10 bg-neutral text-neutral-content">
+    <div className="  bg-fuchsia-900">
+      <footer className="footer p-10 w-11/12 mx-auto text-neutral-content">
         <nav>
           <h6 className="footer-title">Services</h6>
           <a className="link link-hover">Branding</a>
@@ -12,11 +12,18 @@ const Footer = () => {
           <a className="link link-hover">Advertisement</a>
         </nav>
         <nav>
-          <h6 className="footer-title">Company</h6>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
+          <h6 className="footer-title">Services</h6>
+          <a className="link link-hover">Branding</a>
+          <a className="link link-hover">Design</a>
+          <a className="link link-hover">Marketing</a>
+          <a className="link link-hover">Advertisement</a>
+        </nav>
+        <nav>
+          <h6 className="footer-title">Info</h6>
+          <a className="link link-hover">+12676637232344</a>
+          <a className="link link-hover">+48757845456654</a>
+          <a className="link link-hover">+478578454786456</a>
+          <a className="link link-hover">company@gmail.com</a>
         </nav>
         <nav>
           <h6 className="footer-title">Legal</h6>
