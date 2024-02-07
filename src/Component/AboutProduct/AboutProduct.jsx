@@ -1,4 +1,5 @@
 import React from "react";
+import about from '../../assets/perfume.jpg'
 
 const AboutProduct = () => {
   const products = [
@@ -15,6 +16,18 @@ const AboutProduct = () => {
         "Our Face pack imported from Italian vanila company . we are take enough research about it then we deal with them . Its totally safe for skin and you can use it .",
     },
     {
+        id: 1,
+        title: "About Our Foundation:",
+        details:
+          "Our fandation imported from American Visual company . we are take enough research about it then we deal with them . Its totally safe for skin and you can use it .",
+      },
+      {
+        id: 2,
+        title: "About Our face pack :",
+        details:
+          "Our Face pack imported from Italian vanila company . we are take enough research about it then we deal with them . Its totally safe for skin and you can use it .",
+      },
+    {
       id: 3,
       title: "About Our hair Oil :",
       details:
@@ -23,24 +36,22 @@ const AboutProduct = () => {
   ];
   return (
     <div className="w-11/12 mx-auto">
-      <p className="text-2xl font-bold text-center">
+      <p className="text-2xl font-bold text-center my-16">
         Our Product Imported From :
       </p>
-<div>
-<div>
-        {products.map((product) => (
-          <div key={product.id}>
-             <div>
+      <div className="flex w-full gap-4 items-center justify-between">
+        <div className="w-3/5">
+          {products.map((product) => (
+            <div key={product.id} className="mb-4">
                 <h3 className="text-xl font-bold">{product.title}</h3>
                 <p className="text-lg">{product.details}</p>
-             </div>
-          </div>
-        ))}
+            </div>
+          ))}
+        </div>
+        <div className="w-4/12">
+            <img src={about} alt="" />
+        </div>
       </div>
-      <div>
-        
-      </div>
-</div>
     </div>
   );
 };

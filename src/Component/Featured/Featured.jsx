@@ -75,9 +75,8 @@ const Featured = () => {
         {discounts.map((discount) => (
           <div key={discount.id}>
             <SwiperSlide>
-              <Marquee>
                 <div
-                  className="hero h-96"
+                  className="hero h-96 w-80"
                   style={{
                     backgroundImage: `url("${discount.image}")`,
                   }}
@@ -87,14 +86,13 @@ const Featured = () => {
                     <div className="max-w-md">
                       <h1 className="text-3xl font-bold">{discount.name}</h1>
                       <p className="text-xl font-bold">{discount.discount}</p>
-                      <p className="text-lg">
-                        {discount.Details} <br />
+                      {/* <p className="text-lg">
+                        {discount.Details} , <br />
                         {discount.Details2}
-                      </p>
+                      </p> */}
                     </div>
                   </div>
                 </div>
-              </Marquee>
             </SwiperSlide>
           </div>
         ))}
