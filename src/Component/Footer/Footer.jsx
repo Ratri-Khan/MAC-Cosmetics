@@ -3,27 +3,24 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="  bg-blue-950">
-      <footer className="footer p-10 w-11/12 mx-auto text-neutral-content">
+      <footer className="footer p-10 w-11/12 mx-auto text-neutral-content text-center">
         <nav>
-          <h6 className="footer-title">Services</h6>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <h6 className="footer-title">MAC Cosmetics</h6>
+          <a className="text-2xl font-bold">MAC-Cosmetics Industries Ltd.</a>
+          <a className="text-xl">Providing Enjoyable Toys since 1990</a>
+          <a className="">Copyright © 2023 - All right reserved by Toys Industries Ltd</a>
         </nav>
         <nav>
           <h6 className="footer-title">Services</h6>
           <a className="link link-hover">Branding</a>
           <a className="link link-hover">Design</a>
           <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
         </nav>
         <nav>
-          <h6 className="footer-title">Info</h6>
-          <a className="link link-hover">+12676637232344</a>
-          <a className="link link-hover">+48757845456654</a>
-          <a className="link link-hover">+478578454786456</a>
-          <a className="link link-hover">company@gmail.com</a>
+          <h6 className="footer-title">CONTACT US</h6>
+          <a className="link link-hover">34/4 block-3,Uttora,Dhaka</a>
+          <a className="link link-hover">MAC@gmail.com</a>
+          <a className="link link-hover">+00327843209</a>
         </nav>
         <nav>
           <h6 className="footer-title">Legal</h6>

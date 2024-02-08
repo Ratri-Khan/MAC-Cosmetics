@@ -16,19 +16,19 @@ const AboutProduct = () => {
         "Our Face pack imported from Italian vanila company . we are take enough research about it then we deal with them . Its totally safe for skin and you can use it .",
     },
     {
-        id: 1,
+        id: 3,
         title: "About Our Foundation:",
         details:
           "Our fandation imported from American Visual company . we are take enough research about it then we deal with them . Its totally safe for skin and you can use it .",
       },
       {
-        id: 2,
+        id: 4,
         title: "About Our face pack :",
         details:
           "Our Face pack imported from Italian vanila company . we are take enough research about it then we deal with them . Its totally safe for skin and you can use it .",
       },
     {
-      id: 3,
+      id: 5,
       title: "About Our hair Oil :",
       details:
         "Our Hail oil imported from Indian harbal company . we are take enough research about it then we deal with them . Its totally safe for hair and you can use it .",

@@ -1,4 +1,4 @@
-import './Review.css';
+import "./Review.css";
 
 const Review = () => {
   const reviews = [
@@ -52,7 +52,10 @@ const Review = () => {
       </h1>
       <div className="md:grid grid-cols-4 gap-3 pb-16 ">
         {reviews.map((review) => (
-          <div key={review.id} className="makeColor bg-blue-200 rounded text-slate-500 p-4">
+          <div
+            key={review.id}
+            className="makeColor bg-blue-200 rounded text-slate-500 p-4"
+          >
             <p className="text-xl font-bold"> {review.name}</p>
             <p>{review.details}</p>
           </div>
