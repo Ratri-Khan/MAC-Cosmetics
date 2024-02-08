@@ -11,7 +11,7 @@ const Home = () => {
         <div className='bg-slate-50 font-[Poppins] '>
             <Banner></Banner>
             <MakeupGallary></MakeupGallary>
-            <Featured></Featured>
+            {/* <Featured></Featured> */}
             <AboutProduct></AboutProduct>
             <Review></Review>
         </div>

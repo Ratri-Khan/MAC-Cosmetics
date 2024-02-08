@@ -1,90 +1,151 @@
-import React from 'react';
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
-const AddProject = () => {
-    const handleForm = (event) => {
-        event.preventDefault();
-        const form = event.target;
-        const productName = form.productName.value;
-        const email = form.email.value;
-        const photoURL = form.photoURL.value;
-        const price = form.price.value;
-        const sellerName = form.sellerName.value;
-        const quantity = form.quantity.value;
-        const rating = form.rating.value;
-        const description = form.description.value;
-        const productInfo = {
-            productName, email, photoURL, price, sellerName, quantity,description,rating}
+const AddProduct = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
 
-        console.log(productInfo);
-        fetch('http://localhost:3000/product',{
-            method:'POST',
-            headers: { "content-type": "application/json" },
-            body:JSON.stringify(productInfo)
-        })
-        .then(res => res.json())
-        .then(data =>console.log(data))
+  const [selectValue, setSelectValue] = useState(" ");
 
-    }
-    return (
-        <div>
-            <h3 className='text-center font-bold'>Add A Product</h3>
-            <form onSubmit={handleForm} >
-                <div className='md:flex justify-between m-auto w-3/4'>
-                    <div className='w-2/4 m-5'>
-                        <div className="w-full">
-                        <label className='block my-2'>Product Name</label>
-                            <select className="border-fuchsia-700 rounded-xl p-2 w-full border-2" value='productName' name="productName">
-                                <option value="selectProduct" disabled selected >Select Product</option>
-                                <option value="lipstick">lipstick</option>
-                                <option value="NailPolish">NailPolish</option>
-                                <option value="Eye Shadow">Eye Shadow</option>
-                            </select>
-                        </div>
-                        <div className='w-full'>
-                            <label className='block my-2'>Email</label>
-                            <input className='border-2 w-full rounded-xl p-2 border-fuchsia-700' name='email' placeholder='Enter Your Email' type="text" />
-                        </div>
-                        <div className=' w-full'>
-                            <label className='block my-2 '>Photo URL</label>
-                            <input className='border-2 w-full rounded-xl p-2 border-fuchsia-700' name='photoURL' placeholder='Your Product Photo URL' type="text" />
-                        </div>
-                        <div>
-                            <label className="label">
-                                <span className="label-text">Rating</span>
-                            </label>
-                            <input type="number" name="rating" placeholder="ratings"
-                                className="border-2 w-full p-2 rounded-xl border-fuchsia-700"
-                            />
-                        </div>
-                    </div>
-                    <div className='w-2/4 m-5'>
-                        <div className=' w-full'>
-                            <label className='block my-2 '>Price</label>
-                            <input name='price' className='border-2 w-full p-2 rounded-xl border-fuchsia-700' placeholder='Price Of Product' type="text" />
-                        </div>
-                        <div className=' w-full'>
-                            <label className='block my-2 '>Seller Name</label>
-                            <input className='border-2 w-full p-2 rounded-xl border-fuchsia-700' name='sellerName' placeholder='Seller Name' type="text" />
-                        </div>
-                        <div className=' w-full'>
-                            <label className='block my-2 ' placeholder='Available'>Quantity</label>
-                            <input className='border-2 w-full p-2 rounded-xl border-fuchsia-700' name='quantity' placeholder='Quantity' type="text" />
-                        </div>
-                    </div>
-                </div>
-                <div className='w-2/4 m-auto'>
-                <textarea
-                    name="description"
-                    className='border-2  h-24 w-full rounded-xl border-fuchsia-700'
-                    placeholder="Description">
-                </textarea>
-                </div>
-                <div className='w-2/4 m-auto'>
-                    <input type="submit" className='border-2 w-full py-3 rounded-xl bg-fuchsia-700 text-center text-white' value="submit" />
-                </div>
-            </form>
+  const handleForm = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const productName = form.productName.value;
+    const email = form.email.value;
+    const photoURL = form.photoURL.value;
+    const price = form.price.value;
+    const sellerName = form.sellerName.value;
+    const quantity = form.quantity.value;
+    const rating = form.rating.value;
+    const description = form.description.value;
+
+    const productInfo = {
+      productName,
+      email,
+      photoURL,
+      price,
+      sellerName,
+      quantity,
+      description,
+      rating,
+      subCategory: selectValue,
+    };
+
+    console.log(productInfo);
+    fetch("http://localhost:3000/product", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(productInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
+  return (
+    <div className="w-3/5 mx-auto mb-24">
+      <h3 className=" font-bold pt-32 text-3xl text-blue-950">Add A Product</h3>
+      <form
+        onSubmit={handleForm}
+        className="md:flex justify-between text-blue-800"
+      >
+        <div className="w-full m-5">
+          <div className="w-full">
+            <label className="block my-2">Product Name</label>
+            <select
+              className="select border w-full rounded-xl p-2 border-blue-800"
+              onChange={(e) => setSelectValue(e.target.value)}
+            >
+              <option disabled selected>
+                Select subCategory
+              </option>
+              <option value="Ear Ring">Ear Ring</option>
+              <option value="Necklace">Necklace</option>
+              <option value="Bracelet">Bracelet</option>
+            </select>
+          </div>
+          <div className="w-full">
+            <label className="block my-2">Email</label>
+            <input
+              className="border w-full rounded-xl p-2 border-blue-800"
+              name="email"
+              value={user?.email}
+              placeholder="Enter Your Email"
+              type="text"
+            />
+          </div>
+          <div>
+            <label className="label">
+              <span className="label-text text-blue-400">SellerName</span>
+            </label>
+            <input
+              type="text"
+              name="sellerName"
+              value={user?.displayName}
+              className="border w-full rounded-xl p-2 border-blue-800"
+              placeholder="Enter Seller Name"
+            />
+          </div>
+          <div className=" w-full">
+            <label className="block my-2 ">Photo URL</label>
+            <input
+              className="border w-full rounded-xl p-2 border-blue-800"
+              name="photoURL"
+              placeholder="Your Product Photo URL"
+              type="text"
+            />
+          </div>
+          <div>
+            <label className="label">
+              <span className="label-text">Rating</span>
+            </label>
+            <input
+              type="number"
+              name="rating"
+              placeholder="ratings"
+              className="border w-full p-2 rounded-xl border-blue-800"
+            />
+          </div>
         </div>
-    );
+        <div className="w-full m-5">
+          <div className=" w-full">
+            <label className="block my-2 ">Price</label>
+            <input
+              name="price"
+              className="border w-full p-2 rounded-xl border-blue-800"
+              placeholder="Price Of Product"
+              type="text"
+            />
+          </div>
+          <div className=" w-full">
+            <label className="block my-2 ">Seller Name</label>
+            <input
+              className="border w-full p-2 rounded-xl border-blue-800"
+              name="sellerName"
+              placeholder="Seller Name"
+              type="text"
+            />
+          </div>
+          <div className=" w-full">
+            <label className="block my-2 " placeholder="Available">
+              Quantity
+            </label>
+            <input
+              className="border w-full p-2 rounded-xl border-blue-800"
+              name="quantity"
+              placeholder="Quantity"
+              type="text"
+            />
+          </div>
+          <div className="w-full m-auto">
+            <input
+              type="submit"
+              className="border w-full mt-8 p-2 rounded-xl bg-blue-950 text-center text-white"
+              value="submit"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+  );
 };
 
-export default AddProject;
+export default AddProduct;

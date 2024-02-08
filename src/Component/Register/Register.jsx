@@ -4,7 +4,8 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser , updateUserProfile } = useContext(AuthContext);
+
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
@@ -13,11 +14,11 @@ const Register = () => {
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
-    const name = form.name.value;
+    const displayName= form.displayName.value;
     const email = form.email.value;
     const password = form.password.value;
     const confirmPassword = form.confirmPassword.value;
-    console.log(name, email, password, confirmPassword);
+    console.log(email, password, confirmPassword);
 
     form.reset();
 
@@ -33,8 +34,12 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        navigate(from, { replace: true })
-        console.log(loggedUser);
+
+        navigate(from, { replace: true });
+        updateUserProfile({
+          displayName: displayName,
+          photoURL: displayURL
+      });
       })
       .catch((error) => {
         console.log(error);
@@ -52,7 +57,7 @@ const Register = () => {
           </label>
           <input
             type="text"
-            name="name"
+            name="displayName"
             placeholder="Enter Your Name"
             className="border w-full p-2 rounded border-blue-950"
           />
