@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import logo from '../../assets/logo.png'
+// import logo from '../../assets/logo.png'
 
 const Header = () => {
 
     return (
-        <div className="py-2 fixed z-50 w-full text-uppercase flex justify-between
+        <div className="py-2 fixed z-50 w-full text-uppercase  justify-between flex
          bg-black/70 text-white font-bold items-center text-sm px-14 uppercase">
             <div>
                 {/* <img src={logo} alt="" /> */}
-                Makeup House
+                MAC Cosmatics
             </div>
             <ul className="flex">
                 <li className="mr-7"><Link to="/">Home</Link></li>

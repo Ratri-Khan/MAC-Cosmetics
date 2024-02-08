@@ -39,8 +39,8 @@ const AboutProduct = () => {
       <p className="text-2xl font-bold text-center my-16">
         Our Product Imported From :
       </p>
-      <div className="flex w-full gap-4 items-center justify-between">
-        <div className="w-3/5">
+      <div className="md:flex w-full gap-4 items-center justify-between">
+        <div className="md:w-3/5">
           {products.map((product) => (
             <div key={product.id} className="mb-4">
                 <h3 className="text-xl font-bold">{product.title}</h3>
@@ -48,7 +48,7 @@ const AboutProduct = () => {
             </div>
           ))}
         </div>
-        <div className="w-4/12">
+        <div className="md:w-4/12 rounded">
             <img src={about} alt="" />
         </div>
       </div>

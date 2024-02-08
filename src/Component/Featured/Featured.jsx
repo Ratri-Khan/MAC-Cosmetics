@@ -4,8 +4,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
-import Marquee from "react-fast-marquee";
-
 const Featured = () => {
   const discounts = [
     {

@@ -8,7 +8,7 @@ import AboutProduct from '../AboutProduct/AboutProduct';
 
 const Home = () => {
     return (
-        <div className=' bg-fuchsia-100'>
+        <div className='bg-slate-50 font-[Poppins] '>
             <Banner></Banner>
             <MakeupGallary></MakeupGallary>
             <Featured></Featured>
