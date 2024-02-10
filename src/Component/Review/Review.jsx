@@ -50,11 +50,11 @@ const Review = () => {
       <h1 className="text-2xl font-bold text-center my-16">
         What our customers are saying about us
       </h1>
-      <div className="md:grid grid-cols-4 gap-3 pb-16 ">
+      <div className="md:grid grid-cols-4 pb-16 gap-3">
         {reviews.map((review) => (
           <div
             key={review.id}
-            className="makeColor bg-blue-200 rounded text-slate-500 p-4"
+            className="makeColor bg-lime-200 rounded text-slate-500 p-4"
           >
             <p className="text-xl font-bold"> {review.name}</p>
             <p>{review.details}</p>

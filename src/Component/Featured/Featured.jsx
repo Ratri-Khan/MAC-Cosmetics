@@ -58,8 +58,8 @@ const Featured = () => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        {discounts.map((discount) => (
-          <div key={discount.id}>
+        {discounts.map(discount => (
+          <div  key={discount.id}>
             <SwiperSlide>
                 <div
                   className="hero h-96 w-80"
