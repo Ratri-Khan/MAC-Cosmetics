@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
   const { user } = useContext(AuthContext);
@@ -27,13 +28,20 @@ const AddProduct = () => {
       subCategory: selectValue,
     };
     console.log(productInfo);
-    fetch("http://localhost:3000/product", {
+    fetch('http://localhost:3000/product', {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(productInfo),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data);
+        Swal.fire({
+          icon: "success",
+          text: "Successfully added a toy",
+        });
+      });
+    form.reset();
   };
   return (
     <div className="w-3/5 mx-auto mb-24">
@@ -74,9 +82,9 @@ const AddProduct = () => {
               <option disabled selected>
                 Select subCategory
               </option>
-              <option value="Ear Ring">Ear Ring</option>
-              <option value="Necklace">Necklace</option>
-              <option value="Bracelet">Bracelet</option>
+              <option value="Lipstick">Lipstick</option>
+              <option value="Nail polish">Nail polish</option>
+              <option value="Eye Shadow">Eye Shadow</option>
             </select>
           </div>
           <div className=" w-full">

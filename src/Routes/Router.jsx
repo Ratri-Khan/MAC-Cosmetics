@@ -4,6 +4,7 @@ import Login from "../Component/Login/Login";
 import Main from "../OutLates/Main";
 import Register from "../Component/Register/Register";
 import AddProduct from "../Component/AddProduct/AddProduct";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
         },
         {
           path: "/addProject",
-          element: <AddProduct></AddProduct>,
+          element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>,
         },
         {
           path: "/login",

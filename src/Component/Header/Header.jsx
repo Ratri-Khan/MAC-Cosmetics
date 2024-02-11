@@ -5,7 +5,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user)
+  console.log(user);
   const handleLogout = () => {
     logOut()
       .then(() => {})
@@ -76,20 +76,20 @@ const Header = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-sm uppercase text-slate-300 font-bold items-center">
-          <li className="mr-7">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="mr-7">
-            <Link to="/allToys">All Product</Link>
-          </li>
-          <li className="mr-7">
-            <Link to="/myToys">My Product</Link>
-          </li>
-          <li className="mr-7">
-            <Link to="/addProject"> Add Product</Link>
-          </li>
-          <>
-            {user ? (
+          {user ? (
+            <>
+              <li className="mr-7">
+                <Link to="/">Home</Link>
+              </li>
+              <li className="mr-7">
+                <Link to="/allToys">All Product</Link>
+              </li>
+              <li className="mr-7">
+                <Link to="/myToys">My Product</Link>
+              </li>
+              <li className="mr-7">
+                <Link to="/addProject"> Add Product</Link>
+              </li>
               <li className="flex items-center">
                 <p
                   className="cursor-pointer ml-7 border-2 rounded py-2 px-3"
@@ -98,17 +98,28 @@ const Header = () => {
                   logout
                 </p>
               </li>
-            ) : (
-              <div>
-                <Link to="/login" className="mr-7">
-                  Login
-                </Link>
+            </>
+          ) : (
+            <>
+              <li className="mr-7">
+                <Link to="/">Home</Link>
+              </li>
+              <li className="mr-7">
+                <Link to="/allToys">All Product</Link>
+              </li>
+              <li className="mr-7">
+                <Link to="/addProject"> Add Product</Link>
+              </li>
+              <li className="mr-7">
+                <Link to="/login">Login</Link>
+              </li>
+              <li>
                 <Link to="/register" className="">
                   Register
                 </Link>
-              </div>
-            )}
-          </>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </div>

@@ -59,7 +59,7 @@ const Register = () => {
             type="text"
             name="displayName"
             placeholder="Enter Your Name"
-            className="border w-full p-2 rounded border-blue-950"
+            className="w-full p-2 rounded"
           />
         </div>
         <div className="form-control w-full m-auto">
@@ -70,7 +70,7 @@ const Register = () => {
             type="email"
             placeholder="Enter Your Mail"
             name="email"
-            className="border w-full p-2 rounded border-blue-950"
+            className="w-full p-2 rounded"
           />
         </div>
         <div className="form-control w-full m-auto">
@@ -81,7 +81,7 @@ const Register = () => {
             type="password"
             placeholder="Enter Your Password"
             name="password"
-            className="border w-full p-2 rounded border-blue-950"
+            className="w-full p-2 rounded"
           />
         </div>
         <div className="form-control w-full m-auto">
@@ -92,7 +92,7 @@ const Register = () => {
             type="password"
             placeholder="Confirm Your Password"
             name="confirmPassword"
-            className="border w-full p-2 rounded border-blue-950"
+            className="w-full p-2 rounded"
           />
         </div>
         <div>
@@ -100,7 +100,7 @@ const Register = () => {
         </div>
         <div className="form-control w-full m-auto my-4">
           <input
-            className="text-white font-bold cursor-pointer  w-full p-2 rounded bg-blue-950"
+            className="text-white font-bold cursor-pointer  w-full p-2 rounded bg-green-950"
             type="submit"
             value="Register"
           />
