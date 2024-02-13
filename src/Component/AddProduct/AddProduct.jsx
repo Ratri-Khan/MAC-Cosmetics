@@ -28,7 +28,7 @@ const AddProduct = () => {
       subCategory: selectValue,
     };
     console.log(productInfo);
-    fetch('http://localhost:3000/product', {
+    fetch('http://localhost:3000/products', {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(productInfo),

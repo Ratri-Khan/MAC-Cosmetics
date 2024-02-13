@@ -82,13 +82,13 @@ const Header = () => {
                 <Link to="/">Home</Link>
               </li>
               <li className="mr-7">
-                <Link to="/allToys">All Product</Link>
+                <Link to="/myProduct">My Product</Link>
               </li>
               <li className="mr-7">
-                <Link to="/myToys">My Product</Link>
+                <Link to="/allProduct">All Product</Link>
               </li>
               <li className="mr-7">
-                <Link to="/addProject"> Add Product</Link>
+                <Link to="/addProduct"> Add Product</Link>
               </li>
               <li className="flex items-center">
                 <p
