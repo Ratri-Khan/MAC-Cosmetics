@@ -61,53 +61,52 @@ const MyProduct = () => {
 }
   return (
     <div className="overflow-x-auto">
-      <table className="table w-full text-center my-28 border border-lime-900">
-        <thead>
-          <tr className="text-xl text-lime-900">
-            <th className="border border-lime-900">Img</th>
-            <th className="border border-lime-900">Seller</th>
-            <th className="border border-lime-900">Email</th>
-            <th className="border border-lime-900">product</th>
-            <th className="border border-lime-900">Price</th>
-            <th className="border border-lime-900">Rating</th>
-            <th className="border border-lime-900">Available</th>
-            <th className="border border-lime-900">Action</th>
+  <table className="table w-full text-center my-28 border border-lime-900">
+    <thead>
+      <tr className="text-xl text-lime-900">
+        <th className="border border-lime-900">Img</th>
+        <th className="border border-lime-900">Seller</th>
+        <th className="border border-lime-900">Email</th>
+        <th className="border border-lime-900">Product</th>
+        <th className="border border-lime-900">Price</th>
+        <th className="border border-lime-900">Rating</th>
+        <th className="border border-lime-900">Available</th>
+        <th className="border border-lime-900">Action</th>
+      </tr>
+    </thead>
+    <tbody className="text-sm font-bold">
+      {products &&
+        products.map((product) => (
+          <tr key={product._id}>
+            <td className="border border-lime-900">
+              <img
+                src={product.photoURL}
+                className="w-20 h-20"
+                alt={`${product.subCategory}`}
+              />
+            </td>
+            <td className="border border-lime-900 text-lg">
+              {product?.sellerName}
+            </td>
+            <td className="border border-lime-900">{product?.email}</td>
+            <td className="border border-lime-900">{product?.subCategory}</td>
+            <td className="border border-lime-900">${product?.price}</td>
+            <td className="border border-lime-900">{product?.rating}</td>
+            <td className="border border-lime-900">{product?.quantity}</td>
+            <td className="border border-lime-900">
+              <button
+                onClick={() => handleDelete(`${product._id}`)}
+                className="bg-lime-950 text-lime-600 p-3 rounded"
+              >
+                Delete
+              </button>
+            </td>
           </tr>
-        </thead>
-        <tbody className="text-sm font-bold">
-          {products &&
-            products.map((product) => (
-              <tr key={product._id}>
-                <td className="border border-lime-900">
-                  <img
-                    src={product.photoURL}
-                    className="w-20 h-20"
-                    alt={`${product.subCategory}`}
-                  />
-                </td>
-                <td className="border border-lime-900 text-lg">
-                  {product?.sellerName}
-                </td>
-                <td className="border border-lime-900">{product?.email}</td>
-                <td className="border border-lime-900">
-                  {product?.subCategory}
-                </td>
-                <td className="border border-lime-900">${product?.price}</td>
-                <td className="border border-lime-900">{product?.rating}</td>
-                <td className="border border-lime-900">{product?.quantity}</td>
-                <td colSpan={2} className="text-center border border-lime-900">
-                  <button
-                    onClick={() => handleDelete(`${product._id}`)}
-                    className="bg-lime-950 text-lime-600 p-3 rounded"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
-    </div>
+        ))}
+    </tbody>
+  </table>
+</div>
+
   );
 };
 

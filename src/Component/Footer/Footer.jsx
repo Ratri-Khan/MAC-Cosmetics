@@ -3,14 +3,13 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="bg-lime-950">
-      <footer className="footer p-5 w-11/12 mx-auto text-neutral-content text-center">
+      <footer className="footer p-5 w-11/12 mx-auto text-neutral-content">
         <nav>
           <h6 className="footer-title">MAC Cosmetics</h6>
           <a className="text-2xl font-bold">MAC-Cosmetics Industries Ltd.</a>
-          {/* <a className="text-xl">Providing Enjoyable Toys since 1990</a> */}
-          <a className="">Copyright © 2023 - All right reserved by Toys Industries Ltd</a>
+          <a>Copyright © 2023 - All right reserved by Toys Industries Ltd</a>
         </nav>
-        <nav>
+        <nav >
           <h6 className="footer-title">Services</h6>
           <a className="link link-hover">Branding</a>
           <a className="link link-hover">Design</a>

@@ -3,10 +3,8 @@ import { useLoaderData } from "react-router-dom";
 
 const Details = () => {
   const Information = useLoaderData();
-  console.log(Information);
   const { sellerName, email, photoURL, price, rating, quantity, subCategory } =
     Information;
-  console.log(Information);
   return (
     <div className="w-6/12 flex justify-center  mx-auto">
       <div

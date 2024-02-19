@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import Marquee from "react-fast-marquee";
 
 const Featured = () => {
   const discounts = [
@@ -43,40 +43,56 @@ const Featured = () => {
       image: "https://i.ibb.co/vhjJkrk/img2.jpg",
     },
   ];
+  const [slidesPerView, setSlidesPerView] = useState(4);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setSlidesPerView(1); 
+      } else if (window.innerWidth <= 1024) {
+        setSlidesPerView(2); 
+      } else {
+        setSlidesPerView(4);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <div className="w-full  mx-auto">
+    <div className="w-full mx-auto">
       <div>
         <h3 className="text-2xl text-center my-16 font-bold">Discount Price</h3>
       </div>
       <Swiper
-        slidesPerView={4}
+        slidesPerView={slidesPerView}
         spaceBetween={30}
         centeredSlides={false}
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination]}
         className="mySwiper"
       >
-        {discounts.map(discount => (
-          <div  key={discount.id}>
-            <SwiperSlide>
-                <div
-                  className="hero h-96 w-80"
-                  style={{
-                    backgroundImage: `url("${discount.image}")`,
-                  }}
-                >
-                  <div className="hero-overlay bg-opacity-60"></div>
-                  <div className="hero-content text-center text-neutral-content">
-                    <div className="max-w-md">
-                      <h1 className="text-3xl font-bold">{discount.name}</h1>
-                      <p className="text-xl font-bold">{discount.discount}</p>
-                    </div>
-                  </div>
+        {discounts.map((discount) => (
+          <SwiperSlide key={discount.id}>
+            <Marquee>
+            <div
+              className="hero h-96 w-80"
+              style={{
+                backgroundImage: `url("${discount.image}")`,
+              }}
+            >
+              <div className="hero-overlay bg-opacity-60"></div>
+              <div className="hero-content text-center text-neutral-content">
+                <div className="max-w-md">
+                  <h1 className="text-3xl font-bold">{discount.name}</h1>
+                  <p className="text-xl font-bold">{discount.discount}</p>
                 </div>
-            </SwiperSlide>
-          </div>
+              </div>
+            </div>
+            </Marquee>
+          </SwiperSlide>
         ))}
       </Swiper>
     </div>

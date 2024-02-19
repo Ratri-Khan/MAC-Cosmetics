@@ -37,7 +37,29 @@ const Cart = () => {
             {products.map((product) => (
               <div
                 key={product._id}
-                className="card bg-lime-950 text-slate-300 p-3 w-80 shadow-xl">
+                className="card bg-lime-950 text-slate-300 p-3 shadow-xl">
+                <figure>
+                  <img
+                    src={product.photoURL}
+                    className="w-full h-60 object-cover"
+                    alt={product.subCategory} />
+                </figure>
+                <div className="py-7">
+                  <h2>product Name: {product.subCategory}</h2>
+                  <h2>Price: ${product.price}</h2>
+                  <h2>Rating: {product.rating}</h2>
+                  <Link to={`/details/${product._id}`}><button className='p-3 rounded mt-3 bg-lime-800'>view Details</button></Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </TabPanel>
+        <TabPanel>
+          <div className="grid md:grid-cols-3 gap-3 w-full text-slate-300">
+            {products.map((product) => (
+              <div
+                key={product._id}
+                className="card bg-lime-950 p-3 shadow-xl">
                 <figure>
                   <img
                     src={product.photoURL}
@@ -59,29 +81,7 @@ const Cart = () => {
             {products.map((product) => (
               <div
                 key={product._id}
-                className="card bg-lime-950 p-3 w-80 shadow-xl">
-                <figure>
-                  <img
-                    src={product.photoURL}
-                    className="w-full h-60 object-cover"
-                    alt={product.subCategory} />
-                </figure>
-                <div className="py-7">
-                  <h2 className="">product Name: {product.subCategory}</h2>
-                  <h2 className="">Price: ${product.price}</h2>
-                  <h2 className="">Rating: {product.rating}</h2>
-                  <Link to={`/details/${product._id}`}><button className='p-3 rounded mt-3 bg-lime-800'>view Details</button></Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </TabPanel>
-        <TabPanel>
-          <div className="grid md:grid-cols-3 gap-3 w-full text-slate-300">
-            {products.map((product) => (
-              <div
-                key={product._id}
-                className="card bg-lime-950 p-3 w-80 shadow-xl">
+                className="card bg-lime-950 p-3 shadow-xl">
                 <figure>
                   <img
                     src={product.photoURL}

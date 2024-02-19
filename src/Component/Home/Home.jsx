@@ -12,7 +12,7 @@ const Home = () => {
         <div className='bg-lime-100 font-[Poppins] '>
             <Banner></Banner>
             <MakeupGallary></MakeupGallary>
-            {/* <Cart></Cart> */}
+            <Cart></Cart>
             <Featured></Featured>
             <AboutProduct></AboutProduct>
             <Review></Review>

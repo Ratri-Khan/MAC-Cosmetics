@@ -7,7 +7,7 @@ const Login = () => {
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/"
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -20,7 +20,7 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        navigate(from, { replace: true });
+        navigate(from, { replace: true })
         console.log(loggedUser);
       })
       .catch((error) => {
