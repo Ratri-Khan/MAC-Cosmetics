@@ -1,11 +1,13 @@
 import React from "react";
+import logo from '../../assets/logo.png'
 
 const Footer = () => {
   return (
     <div className="bg-lime-950">
       <footer className="footer p-5 w-11/12 mx-auto text-neutral-content">
         <nav>
-          <h6 className="footer-title">MAC Cosmetics</h6>
+          {/* <h6 className="footer-title">MAC Cosmetics</h6> */}
+          <img src={logo} alt="" />
           <a className="text-2xl font-bold">MAC-Cosmetics Industries Ltd.</a>
           <a>Copyright © 2023 - All right reserved by Toys Industries Ltd</a>
         </nav>

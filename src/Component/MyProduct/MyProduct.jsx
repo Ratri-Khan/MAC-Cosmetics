@@ -5,7 +5,6 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 const MyProduct = () => {
   const { user } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
-  const [bookings, setBookings] = useState([]);
 
   const url = `http://localhost:3000/myProduct?email=${user?.email}`;
   useEffect(() => {
@@ -16,48 +15,36 @@ const MyProduct = () => {
       });
   }, [url]);
 
-  //   const handleDelete = (_id) => {
-  //     const warning = Swal.fire({
-  //       title: "Are you sure?",
-  //       text: "You won't be able to revert this!",
-  //       icon: "warning",
-  //       showCancelButton: true,
-  //       confirmButtonColor: "#3085d6",
-  //       cancelButtonColor: "#d33",
-  //       confirmButtonText: "Yes, delete it!",
-  //     });
-  //     if (warning) {
-  //       fetch(`http://localhost:3000/products/${_id}`, {
-  //         method: "DELETE",
-  //       })
-  //         .then((res) => res.json())
-  //         .then((data) => {
-  //           if (data.deletedCount > 0) {
-  //             Swal.fire({
-  //               title: "Deleted!",
-  //               text: "Your file has been deleted.",
-  //               icon: "success",
-  //             });
-  //           }
-  //         });
-  //     }
-  //   };
-  const handleDelete = _id => {
-    const proceed = confirm('Are You sure you want to delete');
-    if (proceed) {
-        fetch(`http://localhost:3000/products/${_id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.deletedCount > 0) {
-                    alert('deleted successful');
-                    const remaining = bookings.filter(booking => booking._id !== _id);
-                    setBookings(remaining);
-                }
+  const handleDelete = (_id) => {
+    //  .then(data => console.log(data))
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch(`http://localhost:3000/products/${_id}`, {
+                method: 'DELETE'
             })
-    }
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        Swal.fire(
+                            'Deleted!',
+                            'Your Coffee has been deleted.',
+                            'success'
+                        )
+                        const remaining = products.filter(product => product._id !== _id);
+                        setProducts(remaining);
+                    }
+                })
+        }
+    })
 }
   return (
     <div className="overflow-x-auto">

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-// import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.png'
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -83,7 +83,10 @@ const Header = () => {
             )}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl text-slate-300">MAC Cosmetics</a>
+        <a className="btn btn-ghost text-xl text-slate-300">
+          <img src={logo} alt="" />
+        </a>
+        {/* <a className="btn btn-ghost text-xl text-slate-300">MAC Cosmetics</a> */}
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-sm uppercase text-slate-300 font-bold items-center">
