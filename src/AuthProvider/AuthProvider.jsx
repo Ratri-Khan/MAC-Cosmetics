@@ -11,16 +11,20 @@ const AuthProvider = ({children}) => {
     const [loading,setLoading] = useState(true);
 
     const createUser = (email,password) =>{
+        setLoading(true);
         return createUserWithEmailAndPassword(auth,email,password);
     }
     const signIn = (email,password) =>{
+        setLoading(true);
         return signInWithEmailAndPassword(auth,email,password);
     }
     const logOut = () =>{
         return signOut(auth);
      }
-     const updateUserProfile = ( profile ) =>{
-        return updateProfile(auth.currentUser, profile);
+    const updateUserProfile = (name, photo) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: photo
+        });
     }
     useEffect(() =>{
         const unsubscribe = onAuthStateChanged(auth,currentUser =>{

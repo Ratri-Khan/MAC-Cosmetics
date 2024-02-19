@@ -61,7 +61,10 @@ const Login = () => {
             type="submit"
             value="Login"
           />
-          <Link to="/register"className="font-bold text-green-950">Create An New Account ?</Link>
+        </div>
+        <div>
+        Don't have an account?
+        <Link to="/register"className="font-bold text-green-950">Register</Link>
         </div>
       </div>
     </form>

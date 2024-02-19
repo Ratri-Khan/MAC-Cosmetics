@@ -37,39 +37,50 @@ const Header = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2  bg-black/70 rounded-box w-52 text-slate-300 uppercase font-bold"
           >
-            <li className="mr-7">
-              <Link to="/">Home</Link>
-            </li>
-            <li className="mr-7">
-              <Link to="/allToys">All Product</Link>
-            </li>
-            <li className="mr-7">
-              <Link to="/myToys">My Product</Link>
-            </li>
-            <li className="mr-7">
-              <Link to="/addProject"> Add Product</Link>
-            </li>
-            <li>
-              {user ? (
-                <div className="flex items-center">
+            {user ? (
+              <>
+                <li className="mr-7">
+                  <Link to="/">Home</Link>
+                </li>
+                <li className="mr-7">
+                  <Link to="/myProduct">My Product</Link>
+                </li>
+                <li className="mr-7">
+                  <Link to="/allProduct">All Product</Link>
+                </li>
+                <li className="mr-7">
+                  <Link to="/addProduct"> Add Product</Link>
+                </li>
+                <li className="flex items-center">
                   <p
                     className="cursor-pointer ml-7 border-2 rounded py-2 px-3"
                     onClick={handleLogout}
                   >
                     logout
                   </p>
-                </div>
-              ) : (
-                <div>
-                  <Link to="/login" className="mr-7">
-                    Login
-                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="mr-7">
+                  <Link to="/">Home</Link>
+                </li>
+                <li className="mr-7">
+                  <Link to="/allProduct">All Product</Link>
+                </li>
+                <li className="mr-7">
+                  <Link to="/addProduct"> Add Product</Link>
+                </li>
+                <li className="mr-7">
+                  <Link to="/login">Login</Link>
+                </li>
+                <li>
                   <Link to="/register" className="">
                     Register
                   </Link>
-                </div>
-              )}
-            </li>
+                </li>
+              </>
+            )}
           </ul>
         </div>
         <a className="btn btn-ghost text-xl text-slate-300">MAC Cosmetics</a>
@@ -105,10 +116,10 @@ const Header = () => {
                 <Link to="/">Home</Link>
               </li>
               <li className="mr-7">
-                <Link to="/allToys">All Product</Link>
+                <Link to="/allProduct">All Product</Link>
               </li>
               <li className="mr-7">
-                <Link to="/addProject"> Add Product</Link>
+                <Link to="/addProduct"> Add Product</Link>
               </li>
               <li className="mr-7">
                 <Link to="/login">Login</Link>

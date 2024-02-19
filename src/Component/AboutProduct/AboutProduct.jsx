@@ -5,33 +5,33 @@ const AboutProduct = () => {
   const products = [
     {
       id: 1,
-      title: "About Our Foundation:",
+      title: "About Our Blusher:",
       details:
-        "Our fandation imported from American Visual company . we are take enough research about it then we deal with them . Its totally safe for skin and you can use it .",
+        "Our Blusher imported from Japanese NARS company . we are take enough research about it then we deal with them . Its totally safe for skin and you can use it .",
     },
     {
       id: 2,
-      title: "About Our face pack :",
+      title: "About Our face pack:",
       details:
         "Our Face pack imported from Italian vanila company . we are take enough research about it then we deal with them . Its totally safe for skin and you can use it .",
     },
     {
         id: 3,
-        title: "About Our Foundation:",
+        title: "About Our Eyeliner:",
         details:
-          "Our fandation imported from American Visual company . we are take enough research about it then we deal with them . Its totally safe for skin and you can use it .",
+          "Our Eyeliner imported from Indian LAKME company . we are take enough research about it then we deal with them . Its totally safe for skin and you can use it .",
       },
       {
         id: 4,
-        title: "About Our face pack :",
+        title: "About Our Lipstick :",
         details:
-          "Our Face pack imported from Italian vanila company . we are take enough research about it then we deal with them . Its totally safe for skin and you can use it .",
+          "Our Lipstick imported from France Dior company . we are take enough research about it then we deal with them . Its totally safe for skin and you can use it .",
       },
     {
       id: 5,
       title: "About Our hair Oil :",
       details:
-        "Our Hail oil imported from Indian harbal company . we are take enough research about it then we deal with them . Its totally safe for hair and you can use it .",
+        "Our Hail oil imported from Indian herbal company . we are take enough research about it then we deal with them . Its totally safe for hair and you can use it .",
     },
   ];
   return (
