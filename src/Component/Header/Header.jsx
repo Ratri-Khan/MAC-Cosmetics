@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-import logo from '../../assets/logo.png'
+import logo from "../../assets/logo.png";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -35,7 +35,7 @@ const Header = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2  bg-black/70 rounded-box w-52 text-slate-300 uppercase font-bold"
+            className="menu menu-sm dropdown-content mt-3 z-[1]   bg-black/70 rounded-box w-52 text-slate-300 uppercase font-bold"
           >
             {user ? (
               <>
@@ -51,9 +51,16 @@ const Header = () => {
                 <li className="mr-7">
                   <Link to="/addProduct"> Add Product</Link>
                 </li>
-                <li className="flex items-center">
+                <li>
+                <img
+                  src={user.photoURL}
+                  alt=""
+                  className="h-14 w-14 rounded-full p-0 m-0"
+                />
+                </li>
+                <li>
                   <p
-                    className="cursor-pointer ml-7 border-2 rounded py-2 px-3"
+                    className="cursor-pointer text-center border rounded "
                     onClick={handleLogout}
                   >
                     logout
@@ -88,25 +95,32 @@ const Header = () => {
         </a>
         {/* <a className="btn btn-ghost text-xl text-slate-300">MAC Cosmetics</a> */}
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 text-sm uppercase text-slate-300 font-bold items-center">
+      <div className="navbar-center hidden lg:flex py-0 my-0">
+        <ul className="menu menu-horizontal py-0 my-0 text-sm uppercase text-slate-300 font-bold items-center">
           {user ? (
             <>
-              <li className="mr-7">
+              <li className="mr-2">
                 <Link to="/">Home</Link>
               </li>
-              <li className="mr-7">
+              <li className="mr-2">
                 <Link to="/myProduct">My Product</Link>
               </li>
-              <li className="mr-7">
+              <li className="mr-2">
                 <Link to="/allProduct">All Product</Link>
               </li>
               <li className="mr-7">
                 <Link to="/addProduct"> Add Product</Link>
               </li>
-              <li className="flex items-center">
+              <li className="mr-3">
+                <img
+                  src={user.photoURL}
+                  alt=""
+                  className="h-14 w-14 rounded-full p-0 m-0"
+                />
+              </li>
+              <li>
                 <p
-                  className="cursor-pointer ml-7 border-2 rounded py-2 px-3"
+                  className="cursor-pointer border rounded px-3"
                   onClick={handleLogout}
                 >
                   logout

@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import Details from "../Component/Details/Details";
 import MyProduct from "../Component/MyProduct/MyProduct";
 import AllProduct from "../Component/AllProduct/AllProduct";
+import Error404 from "../OutLates/Error404";
 
 const router = createBrowserRouter([
     {
@@ -45,6 +46,7 @@ const router = createBrowserRouter([
           loader: () => fetch('http://localhost:3000/getProducts')
         },
       ],
+      errorElement: <Error404></Error404>
     },
   ]);
 

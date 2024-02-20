@@ -15,6 +15,7 @@ const Home = () => {
             <Cart></Cart>
             <Featured></Featured>
             <AboutProduct></AboutProduct>
+            
             <Review></Review>
         </div>
     );

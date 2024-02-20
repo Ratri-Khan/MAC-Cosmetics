@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 
 const AddProduct = () => {
   const { user } = useContext(AuthContext);
+  
   console.log(user);
 
   const [selectValue, setSelectValue] = useState(" ");
@@ -44,7 +45,7 @@ const AddProduct = () => {
     form.reset();
   };
   return (
-    <div className="w-3/5 mx-auto mb-24">
+    <div className="w-9/12 mx-auto mb-24 ">
       <h3 className=" font-bold pt-32 text-3xl ">Add A Product</h3>
       <form
         onSubmit={handleForm}
@@ -59,14 +60,14 @@ const AddProduct = () => {
               type="text"
               name="sellerName"
               value={user?.displayName}
-              className="border w-full rounded-xl p-2 border-slate-400"
+              className="border w-full rounded bg-lime-200 p-2 border-lime-600"
               placeholder="Enter Seller Name"
             />
           </div>
           <div className="w-full">
             <label className="block my-2 label-text">Email</label>
             <input
-              className="border w-full rounded-xl p-2 border-slate-400"
+              className="border w-full rounded p-2 bg-lime-200 border-lime-600"
               name="email"
               value={user?.email}
               placeholder="Enter Your Email"
@@ -76,7 +77,7 @@ const AddProduct = () => {
           <div className="w-full">
             <label className="block my-2 label-text">Product Name</label>
             <select
-              className="select border w-full  rounded-xl p-2 border-slate-400"
+              className="select border w-full  rounded p-2 bg-lime-200 border-lime-600"
               onChange={(e) => setSelectValue(e.target.value)}
             >
               <option disabled selected>
@@ -90,7 +91,7 @@ const AddProduct = () => {
           <div className=" w-full">
             <label className="block my-2 label-text">Photo URL</label>
             <input
-              className="border w-full rounded-xl p-2 border-slate-400"
+              className="border w-full rounded p-2 bg-lime-200 border-lime-600"
               name="photoURL"
               placeholder="Your Product Photo URL"
               type="text"
@@ -103,7 +104,7 @@ const AddProduct = () => {
             <label className="block my-2 label-text">Price</label>
             <input
               name="price"
-              className="border w-full p-2 rounded-xl border-slate-400"
+              className="border w-full p-2 rounded bg-lime-200 border-lime-600"
               placeholder="Price Of Product"
               type="text"
             />
@@ -116,7 +117,7 @@ const AddProduct = () => {
               type="number"
               name="rating"
               placeholder="ratings"
-              className="border w-full p-2 rounded-xl border-slate-400"
+              className="border w-full p-2 rounded bg-lime-200 border-lime-600"
             />
           </div>
           <div className=" w-full">
@@ -124,7 +125,7 @@ const AddProduct = () => {
               Quantity
             </label>
             <input
-              className="border w-full p-2 rounded-xl border-slate-400"
+              className="border w-full p-2 rounded bg-lime-200 border-lime-600"
               name="quantity"
               placeholder="Quantity"
               type="text"
@@ -133,7 +134,7 @@ const AddProduct = () => {
           <div className="w-full m-auto">
             <input
               type="submit"
-              className="border w-full mt-10 p-2 rounded-xl bg-lime-950 text-center text-white"
+              className="border cursor-pointer w-full mt-10 p-2  rounded bg-lime-950 text-center text-white"
               value="submit"
             />
           </div>

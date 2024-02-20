@@ -14,30 +14,51 @@ const Register = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
 
   const [error, setError] = useState("");
+  const [image, setImage] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
   const onSubmit = (data) => {
-    createUser(data.email, data.password)
-      .then((result) => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
-        updateUserProfile(data.name, data.photoURL)
-          .then(() => {
-            reset();
-            navigate("/");
-          })
-          .catch((error) => {
-            if (error.message === "Firebase: Error (auth/email-already-in-use).") {
-              setError("This email already has an account, please sign up with a unique email");
-            }
-          });
-      })
-      .catch((error) => {
-        console.error("Error creating user:", error);
-        setError("This email already has an account, please sign up with a unique email.");
+    // console.log(data);
+    const formData = new FormData();
+    const photo = data.image[0];
+    formData.append("image", photo);
+
+    fetch("https://api.imgbb.com/1/upload?key=0dcd541bb8ac1f94c5768a7ce8eee5ad", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        createUser(data.email, data.password)
+        .then((result) => {
+          const loggedUser = result.user;
+          console.log(loggedUser);
+          updateUserProfile(data.name, res.data.url)
+            .then(() => {
+              reset();
+              navigate("/");
+            })
+            .catch((error) => {
+              if (
+                error.message === "Firebase: Error (auth/email-already-in-use)."
+              ) {
+                setError(
+                  "This email already has an account, please sign up with a unique email"
+                );
+              }
+            });
+        })
+        .catch((error) => {
+          console.error("Error creating user:", error);
+          setError(
+            "This email already has an account, please sign up with a unique email."
+          );
+        });
       });
+
+
   };
 
   return (
@@ -57,7 +78,9 @@ const Register = () => {
             className="w-full p-2 rounded"
           />
           {errors.name && (
-            <span className="font-bold text-red-600 text-sm">Please fill up this field.</span>
+            <span className="font-bold text-red-600 text-sm">
+              Please fill up this field.
+            </span>
           )}
         </div>
         <div className="form-control w-full m-auto">
@@ -84,7 +107,9 @@ const Register = () => {
             className="w-full p-2 rounded"
           />
           {errors.password && (
-            <span className="font-bold text-red-600 text-sm">Please fill up this field.</span>
+            <span className="font-bold text-red-600 text-sm">
+              Please fill up this field.
+            </span>
           )}
         </div>
         <div className="form-control w-full m-auto">
@@ -98,7 +123,25 @@ const Register = () => {
             className="w-full p-2 rounded"
           />
           {errors.confirmPassword && (
-            <span className="font-bold text-red-600 text-sm">Please fill up this field.</span>
+            <span className="font-bold text-red-600 text-sm">
+              Please fill up this field.
+            </span>
+          )}
+        </div>
+        <div className="form-control w-full m-auto">
+          <label className="my-2">
+            <small>Image</small>
+          </label>
+          <input
+            type="file"
+            placeholder=""
+            {...register("image", { required: true })}
+            className="w-full p-2 rounded"
+          />
+          {errors.confirmPassword && (
+            <span className="font-bold text-red-600 text-sm">
+              Please fill up this field.
+            </span>
           )}
         </div>
         <div>
@@ -112,8 +155,10 @@ const Register = () => {
           />
         </div>
         <div>
-        Already Have an account?
-        <Link to="/login"className="font-bold text-green-950">Login</Link>
+          Already Have an account?
+          <Link to="/login" className="font-bold text-green-950">
+            Login
+          </Link>
         </div>
       </div>
     </form>
