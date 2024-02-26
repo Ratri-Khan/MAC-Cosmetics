@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         {
           path: "/details/:_id",
           element: <PrivateRoute><Details></Details></PrivateRoute>,
-          loader:({params}) => fetch(`http://localhost:3000/getProducts/${params._id}`)
+          loader:({params}) => fetch(`https://mac-cosmetics-server.vercel.app/getProducts/${params._id}`)
         },
         {
           path: "/myProduct",
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         {
           path: "/allProduct",
           element:<AllProduct></AllProduct>,
-          loader: () => fetch('http://localhost:3000/getProducts')
+          loader: () => fetch('https://mac-cosmetics-server.vercel.app/getProducts')
         },
       ],
       errorElement: <Error404></Error404>

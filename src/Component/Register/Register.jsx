@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 const Register = () => {
+  const imageApi = import.meta.env.VITE_IMGKEY ;
   const {
     register,
     handleSubmit,
@@ -25,40 +26,48 @@ const Register = () => {
     const photo = data.image[0];
     formData.append("image", photo);
 
-    fetch("https://api.imgbb.com/1/upload?key=0dcd541bb8ac1f94c5768a7ce8eee5ad", {
-      method: "POST",
-      body: formData,
-    })
+    fetch(
+      `https://api.imgbb.com/1/upload?key=${imageApi}`,
+      {
+        method: "POST",
+        body: formData,
+      }
+    )
       .then((res) => res.json())
       .then((res) => {
         createUser(data.email, data.password)
-        .then((result) => {
-          const loggedUser = result.user;
-          console.log(loggedUser);
-          updateUserProfile(data.name, res.data.url)
-            .then(() => {
-              reset();
-              navigate("/");
-            })
-            .catch((error) => {
-              if (
-                error.message === "Firebase: Error (auth/email-already-in-use)."
-              ) {
-                setError(
-                  "This email already has an account, please sign up with a unique email"
-                );
-              }
-            });
-        })
-        .catch((error) => {
-          console.error("Error creating user:", error);
-          setError(
-            "This email already has an account, please sign up with a unique email."
-          );
-        });
+          .then((result) => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            updateUserProfile(data.name, res.data.url)
+              .then(() => {
+                reset();
+                navigate(from, { replace: true })
+              })
+
+              .catch((error) => {
+                console.error("Error updating user profile:", error);
+                setError("An error occurred while updating the user profile.");
+              });
+          })
+          .catch((error) => {
+            console.error("Error creating user:", error);
+            if (
+              error.message === "Firebase: Error (auth/email-already-in-use)."
+            ) {
+              setError(
+                "This email already has an account, please sign up with a unique email."
+              );
+            } else if (
+              error.message ===
+              "Firebase: Password should be at least 6 characters (auth/weak-password)."
+            ) {
+              setError("Password should be at least 6 characters.");
+            } else {
+              setError("An unknown error occurred while creating the user.");
+            }
+          });
       });
-
-
   };
 
   return (
@@ -75,7 +84,7 @@ const Register = () => {
             type="text"
             {...register("name", { required: true })}
             placeholder="Enter Your Name"
-            className="w-full p-2 rounded"
+            className="w-full p-2 rounded bg-green-100"
           />
           {errors.name && (
             <span className="font-bold text-red-600 text-sm">
@@ -92,7 +101,7 @@ const Register = () => {
             placeholder="Enter Your Mail"
             {...register("email", { required: "Email Address is required" })}
             aria-invalid={errors.email ? "true" : "false"}
-            className="w-full p-2 rounded"
+            className="w-full p-2 rounded bg-green-100"
           />
           {errors.email && <p role="alert">{errors.mail.message}</p>}
         </div>
@@ -103,28 +112,22 @@ const Register = () => {
           <input
             type="password"
             placeholder="Enter Your Password"
-            {...register("password", { required: true })}
-            className="w-full p-2 rounded"
+            {...register("password", {
+              required: "Password is required",
+              minLength: {
+                value: 6,
+                message: "Password must be at least 6 characters",
+              },
+              maxLength: {
+                value: 16,
+                message: "Password must not exceed 16 characters",
+              },
+            })}
+            className="w-full p-2 rounded bg-green-100"
           />
           {errors.password && (
             <span className="font-bold text-red-600 text-sm">
-              Please fill up this field.
-            </span>
-          )}
-        </div>
-        <div className="form-control w-full m-auto">
-          <label className="my-2">
-            <small>Confirm Password</small>
-          </label>
-          <input
-            type="password"
-            placeholder="Confirm Your Password"
-            {...register("confirmPassword", { required: true })}
-            className="w-full p-2 rounded"
-          />
-          {errors.confirmPassword && (
-            <span className="font-bold text-red-600 text-sm">
-              Please fill up this field.
+              {errors.password.message}
             </span>
           )}
         </div>
@@ -134,13 +137,13 @@ const Register = () => {
           </label>
           <input
             type="file"
-            placeholder=""
+            placeholder="Upload Your Photo"
             {...register("image", { required: true })}
-            className="w-full p-2 rounded"
+            className="w-full p-2 rounded  bg-green-100"
           />
-          {errors.confirmPassword && (
+          {errors.image && (
             <span className="font-bold text-red-600 text-sm">
-              Please fill up this field.
+              Please Upload A Photo.
             </span>
           )}
         </div>

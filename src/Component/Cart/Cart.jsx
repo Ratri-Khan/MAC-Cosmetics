@@ -10,7 +10,7 @@ const Cart = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:3000/categories?subCategory=${tabtext}`
+      `https://mac-cosmetics-server.vercel.app/categories?subCategory=${tabtext}`
     )
       .then((res) => res.json())
       .then((data) => {

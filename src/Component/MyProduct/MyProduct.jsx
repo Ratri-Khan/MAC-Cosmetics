@@ -6,7 +6,7 @@ const MyProduct = () => {
   const { user } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
 
-  const url = `http://localhost:3000/myProduct?email=${user?.email}`;
+  const url = `https://mac-cosmetics-server.vercel.app/myProduct?email=${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -27,7 +27,7 @@ const MyProduct = () => {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
-            fetch(`http://localhost:3000/products/${_id}`, {
+            fetch(`https://mac-cosmetics-server.vercel.app/products/${_id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

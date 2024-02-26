@@ -29,7 +29,7 @@ const AddProduct = () => {
       subCategory: selectValue,
     };
     console.log(productInfo);
-    fetch('http://localhost:3000/products', {
+    fetch('https://mac-cosmetics-server.vercel.app/products', {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(productInfo),
