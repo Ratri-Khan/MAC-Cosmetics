@@ -89,7 +89,7 @@ const Header = () => {
             )}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl text-slate-300">
+        <a>
           <img src={logo} alt="" />
         </a>
         {/* <a className="btn btn-ghost text-xl text-slate-300">MAC Cosmetics</a> */}
@@ -150,6 +150,7 @@ const Header = () => {
         </ul>
       </div>
     </div>
+
   );
 };
 
