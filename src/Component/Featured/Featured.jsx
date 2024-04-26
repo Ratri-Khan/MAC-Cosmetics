@@ -76,7 +76,6 @@ const Featured = () => {
       >
         {discounts.map((discount) => (
           <SwiperSlide key={discount.id}>
-            <Marquee>
             <div
               className="hero h-96 w-80"
               style={{
@@ -91,7 +90,6 @@ const Featured = () => {
                 </div>
               </div>
             </div>
-            </Marquee>
           </SwiperSlide>
         ))}
       </Swiper>

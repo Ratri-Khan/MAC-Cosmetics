@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 
 const AllProduct = () => {
     const products = useLoaderData();
+    console.log(products);
     return (
         <div className="overflow-x-auto">
             <table className="table my-24 border border-lime-900">
