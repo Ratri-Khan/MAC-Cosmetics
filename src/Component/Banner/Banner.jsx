@@ -1,6 +1,6 @@
+import banner1 from "../../assets/banner/banner1.jpg";
+import banner2 from "../../assets/banner/banner2.jpg";
 import banner3 from "../../assets/banner/banner3.jpg";
-import banner5 from "../../assets/banner/banner5.jpg";
-import banner6 from "../../assets/banner/banner6.jpg";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -26,17 +26,17 @@ const Banner = () => {
        
         <SwiperSlide>
           <div className="hero min-h-screen"
-            style={{ backgroundImage: `url(${banner3})` }}>
+            style={{ backgroundImage: `url(${banner1})` }}>
           </div>
         </SwiperSlide>
          <SwiperSlide>
           <div className="hero min-h-screen"
-            style={{ backgroundImage: `url(${banner5})`}}>
+            style={{ backgroundImage: `url(${banner2})`}}>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="hero min-h-screen"
-            style={{ backgroundImage: `url(${banner6})` }}>
+            style={{ backgroundImage: `url(${banner3})` }}>
           </div>
         </SwiperSlide>
       </Swiper>
